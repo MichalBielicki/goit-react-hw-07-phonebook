@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filterContacts } from "../redux/actions";
 
 export const Filter = () => {
@@ -11,12 +12,12 @@ export const Filter = () => {
   return (
     <div>
       <label>
-        Find contacts by name
+        Find contacts by name =&gt;
         <input
           onChange={onFilter}
           type="text"
           value={filter}
-          placeholder="Type a name"
+          placeholder="Filter Contacts"
         ></input>
       </label>
     </div>
