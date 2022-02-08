@@ -15,14 +15,15 @@ const getVisibleContacts = (contacts, filter) => {
   );
 };
 export const Contact = () => {
-  const { data, error } = useGetContactsQuery();
-  console.log(data, error);
+  const { data, error, isLoading } = useGetContactsQuery();
   const [deleteContact] = useDeleteContactByIdMutation();
   const filter = useSelector((state) => state.filter);
   return (
     <>
       {error ? (
         <>Oh no, there was an error</>
+      ) : isLoading ? (
+        <>Loading...</>
       ) : data ? (
         <>
           {getVisibleContacts(data, filter).map(({ id, name, phone }) => (
